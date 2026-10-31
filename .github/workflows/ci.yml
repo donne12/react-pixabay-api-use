@@ -16,6 +16,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      # react-scripts 3 (webpack 4) needs the legacy OpenSSL provider on Node >= 17
+      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
